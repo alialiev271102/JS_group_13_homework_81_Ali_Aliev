@@ -1,0 +1,7 @@
+<h1>Shorter your link!</h1>
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+  <input type="text" name="Url" required ngModel>
+  <button type="submit" [disabled] = "f.invalid">Shorter!</button>
+</form>
+<a [href]="originalUrl" *ngIf="shortLink">http://localhost:8000/{{ shortLink }}</a>
+
