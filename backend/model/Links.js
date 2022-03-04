@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const LinkSchema = new Schema({
     Url: {
         type: String,
-        required: true,
+        required: true
     },
     shortUrl: String
 });

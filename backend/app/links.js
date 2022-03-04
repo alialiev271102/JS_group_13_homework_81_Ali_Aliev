@@ -6,13 +6,13 @@ const router = express.Router();
 
 router.get('/:shortUrl', async (req, res, next) => {
     try {
-        const links = await Links.findById(req.params.shortUrl);
+        const links = await Links.find({"shortUrl": `${req.params.shortUrl}`});
+        console.log(links);
 
         if (!links) {
             return res.status(404).send({message: 'Not Found'});
         }
-        res.status(301).redirect(req.params.Url);
-        return res.send(links);
+        return res.status(301).redirect(req.params.Url);
     } catch (e) {
         next(e);
     }
@@ -33,7 +33,7 @@ router.post('/', async (req, res, next) => {
 
         await link.save();
         console.log(link);
-        return res.send(link)
+        return res.send(link);
     }catch (e) {
         next(e);
     }

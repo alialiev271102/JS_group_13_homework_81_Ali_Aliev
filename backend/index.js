@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const links = require('./app/links');
-const config = require('config');
+const config = require('./config');
 const app = express();
 
 const port = 8000;
